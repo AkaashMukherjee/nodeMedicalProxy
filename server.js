@@ -32,9 +32,9 @@ app.get('/addpatient',
 
         // setup the fabric network
         var channel = fabric_client.newChannel('mychannel');
-        var peer = fabric_client.newPeer('grpc://192.168.23.206:7051');
+        var peer = fabric_client.newPeer('grpc://localhost:7051');
         channel.addPeer(peer);
-        var order = fabric_client.newOrderer('grpc://192.168.23.206:7050')
+        var order = fabric_client.newOrderer('grpc://localhost:7050')
         channel.addOrderer(order);
 
         //DOIT CHANGER LE LIEN DES CLES SELON ELLES SONT OU, a voir lorsque la blockchain est sur plusieurs oridinateurs differents
@@ -114,7 +114,7 @@ app.get('/addpatient',
                 // get an eventhub once the fabric client has a user assigned. The user
                 // is required bacause the event registration must be signed
                 let event_hub = fabric_client.newEventHub();
-                event_hub.setPeerAddr('grpc://192.168.23.206:7053');
+                event_hub.setPeerAddr('grpc://localhost:7053');
 
                 // using resolve the promise so that result status may be processed
                 // under the then clause rather than having the catch clause process
@@ -187,7 +187,7 @@ app.get('/query',
 
 	// setup the fabric network
     var channel = fabric_client.newChannel('mychannel');
-	var peer = fabric_client.newPeer('grpc://192.168.23.206:7051');
+	var peer = fabric_client.newPeer('grpc://localhost:7051');
 	channel.addPeer(peer);
 
 	//DOIT CHANGER LE LIEN DES CLES SELON ELLES SONT OU, a voir lorsque la blockchain est sur plusieurs oridinateurs differents
@@ -262,9 +262,9 @@ app.get('/invoke',
 
     // setup the fabric network
     var channel = fabric_client.newChannel('mychannel');
-    var peer = fabric_client.newPeer('grpc://192.168.23.206:7051');
+    var peer = fabric_client.newPeer('grpc://localhost:7051');
     channel.addPeer(peer);
-    var order = fabric_client.newOrderer('grpc://192.168.23.206:7050')
+    var order = fabric_client.newOrderer('grpc://localhost:7050')
     channel.addOrderer(order);
     
    //DOIT CHANGER LE LIEN DES CLES SELON ELLES SONT OU, a voir lorsque la blockchain est sur plusieurs oridinateurs differents
@@ -347,7 +347,7 @@ app.get('/invoke',
             // get an eventhub once the fabric client has a user assigned. The user
             // is required bacause the event registration must be signed
             let event_hub = fabric_client.newEventHub();
-            event_hub.setPeerAddr('grpc://192.168.23.206:7053');
+            event_hub.setPeerAddr('grpc://localhost:7053');
     
             // using resolve the promise so that result status may be processed
             // under the then clause rather than having the catch clause process
